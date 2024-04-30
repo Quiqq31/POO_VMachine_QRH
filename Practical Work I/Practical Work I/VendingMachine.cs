@@ -133,7 +133,7 @@ namespace PWI
                 //Product p = new Product(this.product_type, this.product_name, this.product_units, this.product_unit_price, this.product_description, this.index_pal, this.pal);
                 
                 //this.products.Add(p);
-
+                // pruebas 
                 x = 0; // indice de palabras a cero, para que comience desde la primera palabra en la siguiente linea
                 y++; // aumentamos el indice de linea, para que pase a procesar/leer la siguiente linea del fichero
             }
