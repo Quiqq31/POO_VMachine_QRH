@@ -1,4 +1,4 @@
-﻿using PWI;
+using PWI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +25,20 @@ namespace PWI
             this.peso = pesos;
         }
 
-        public PreciousMaterials(string a) // constructor para el rellnar automatico (usando files)
+        public PreciousMaterials(int product_type, string product_name, int product_units, double product_unit_price, string product_description, string var6, string var7) // constructor para el rellnar automatico (usando files)
         {
-            this.mat = this.materials;
-            this.peso = this.weight;
+
+            this.product_type = product_type;
+            this.product_name = product_name;
+            this.product_units = product_units;
+            this.product_unit_price = product_unit_price;
+            this.product_description = product_description;
+
+            this.mat = var6;
+            this.peso = var7;
+
+            this.materials = this.mat;
+            this.weight = this.peso;
         }
 
         public override void Rellenar()
