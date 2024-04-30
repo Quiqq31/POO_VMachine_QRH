@@ -52,6 +52,7 @@ namespace PWI
 
                     case 1:
                         Console.WriteLine("Buy products ");
+                        v.ShowProducts();
                         Console.ReadLine();
 
                         break;
