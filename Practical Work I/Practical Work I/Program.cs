@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace PWI
 {
@@ -9,7 +9,7 @@ namespace PWI
             try
             {
 
-
+            
                 string path = "stock.txt";
 
                 VendingMachine v = new VendingMachine();
@@ -49,14 +49,14 @@ namespace PWI
                         case 1:
                             Console.WriteLine("Buy products ");
                             v.ShowProducts();
-                          //  v.BuyProducts();
+                            v.BuyProducts();
                             Console.ReadLine();
 
                             break;
                         case 2:
 
                             Console.WriteLine("Product info: ");
-                           // v.VerProductos();
+                            v.VerProductos();
                             Console.ReadLine();
 
                             break;
@@ -69,13 +69,13 @@ namespace PWI
                                 if (passwd == 1234)
                                 {
                                     v.AddProduct();
-
+                            
                                     Console.ReadLine();
                                 }
                                 else
                                 {
                                     Console.WriteLine("Incorrect key, press enter to return to menu");
-                                    Console.ReadLine();
+                                    Console.ReadLine() ;
                                 }
                             }
                             catch (Exception ex)
@@ -102,16 +102,13 @@ namespace PWI
                                     Console.ReadLine();
 
                                 }
-                            }
-                            catch (Exception ex)
+                            }catch (Exception ex)
                             {
                                 Console.WriteLine(ex.ToString());
                                 Console.ReadKey();
                             }
-                            break;
+                             break;
                         case 5:
-                            break;
-
                             break;
                         default:
                             Console.WriteLine("Please choose an option between 1 and 5");
@@ -125,6 +122,6 @@ namespace PWI
                 Console.WriteLine(err.Message);
             }
 
-        }
+        }     
     }
 }
