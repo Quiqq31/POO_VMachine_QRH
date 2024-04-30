@@ -18,6 +18,10 @@ namespace PWI
         private double product_unit_price;
         private string product_description;
 
+        private string var6;
+        private string var7;
+        private string var8;
+
         // vars para mat precious
         private string materials;
         private string weight;
@@ -72,39 +76,37 @@ namespace PWI
                         case 4: // product_description
                             this.product_description = palabra; // guardamos en la variable, la descripcion del producto
                             break;
-                        default: // si es uno de los campos especificos del tipo de producto
-                            if (this.product_type == 1) // crear un material precioso
+                        case 5:
+                            this.var6 = palabra;
+                            if (this.product_type == 1)
                             {
-                                if (x == 5) // tipo de material
-                                {
-                                    this.materials = palabra; // guardamos la variable de tipo de material
-                                }
-                                else if (x == 6) // weight
-                                {
-                                    this.weight = palabra; // guardamos la variable del peso del producto
-                                }
-
+                                this.materials = this.var6;
+                            }else if(this.product_type == 2)
+                            {
+                                this.nutritional_information = this.var6;
                             }
-                            else if (this.product_type == 2) // crear un alimento
+                            else if(this.product_type == 3)
                             {
-                                this.nutritional_information = palabra; // guardamos en la variable, la info nutricional 
+                                this.materials = this.var6;
                             }
-                            else if (this.product_type == 3) // crear un prod electronico
+                            break;
+                        case 6:
+                            this.var7 = palabra;
+                            if(this.product_type == 1)
                             {
-                                if (x == 5) // si es el campo de los materiales
+                                this.weight = this.var7;
+                            }else if (this.product_type == 3)
+                            {
+                                this.has_battery = bool.Parse(this.var7);
+                            }
+                            break;
+                        case 7:
+                            this.var8 = palabra;
+                            if (this.product_type == 3)
+                            {
+                                if (this.has_battery == true) // si tiene bateria miramos si esta cargada o no
                                 {
-                                    this.materials = palabra; // guardamos la variable de tipo de materiales del producto
-                                }
-                                else if (x == 6) // si es el campo de si tiene bateria o no
-                                {
-                                    this.has_battery = bool.Parse(palabra); // guardamos si tiene o no bateria (si tiene = 1, no tiene = 0)
-                                }
-                                else if (x == 7) // si es el campo que comprueba si esta cargada la bateria  o no
-                                {
-                                    if (this.has_battery == true) // si tiene bateria miramos si esta cargada o no
-                                    {
-                                        this.charged_by_default = bool.Parse(palabra); // guardamos en la variable, si la bateria esta cargada o no (1 = si esta cargada, 0 = no esta cargada)
-                                    }
+                                    this.charged_by_default = bool.Parse(this.var8); // guardamos en la variable, si la bateria esta cargada o no (1 = si esta cargada, 0 = no esta cargada)
                                 }
                             }
                             break;
@@ -114,14 +116,29 @@ namespace PWI
                 }
                 if(this.product_type == 1)
                 {
-                    PreciousMaterials mat2 = new PreciousMaterials("tipo1");
+                    //PreciousMaterials mat2 = new PreciousMaterials("tipo1");
 
-                    mat2.Rellenar();
+                    //mat2.Rellenar();
+                    this.products.Add(new PreciousMaterials(this.product_type, this.product_name, this.product_units, this.product_unit_price, this.product_description, this.var6, this.var7));
+
+                }else if(this.product_type == 2)
+                {
+                    //FoodProducts food2 = new FoodProducts("tipo2");
+                    //food2.Rellenar();
+                    this.products.Add(new FoodProducts(this.product_type, this.product_name, this.product_units, this.product_unit_price, this.product_description, this.var6));
+
 
                 }
-                Product p = new Product(this.product_type, this.product_name, this.product_units, this.product_unit_price, this.product_description, this.index_pal, this.pal);
+                else if(this.product_type == 3)
+                {
+                    //ElectronicProducts elec2 = new ElectronicProducts("tipo3");
+                    //elec2.Rellenar();
 
-                this.products.Add(p);
+                    this.products.Add(new ElectronicProducts(this.product_type, this.product_name, this.product_units, this.product_unit_price, this.product_description, this.var6, this.has_battery, this.charged_by_default));
+                }
+                //Product p = new Product(this.product_type, this.product_name, this.product_units, this.product_unit_price, this.product_description, this.index_pal, this.pal);
+
+                //this.products.Add(p);
                 
                 x = 0; // indice de palabras a cero, para que comience desde la primera palabra en la siguiente linea
                 y++; // aumentamos el indice de linea, para que pase a procesar/leer la siguiente linea del fichero
@@ -266,6 +283,159 @@ namespace PWI
                 else Console.WriteLine("Type a valid letter"); Console.ReadLine();
 
             } while (newProduct == 'e' || newProduct == 'n');
+        }
+
+        public void BuyProducts()
+        {
+            Console.Clear();
+            Console.WriteLine("Available Products:");
+            // Display all available products including name, available units, and price
+            foreach (var product in products)
+            {
+                Console.WriteLine($"Type: {product.GetProduct_Type()}, Name: {product.GetProduct_Name()}, Available Units: {product.GetProduct_Units()}, Price: {product.GetProduct_Price()} \n  -> Description: {product.GetProduct_Description()}");
+            }
+
+            List<Product> selectedProducts = new List<Product>();
+
+            while (true)
+            {
+                Console.Write("Enter the name of the product you want to buy (or type 'done' to proceed to payment): ");
+                string input = Console.ReadLine();
+
+                if (input.ToLower() == "done")
+                {
+                    break;
+                }
+
+                foreach (Product p in products)
+                {
+                    if (input == p.GetProduct_Name())
+                    {
+                        selectedProducts.Add(p);
+                    }
+                }
+            }
+
+            // Ask for payment method
+            Console.WriteLine("Choose payment method:");
+            Console.WriteLine("1. Cash");
+            Console.WriteLine("2. Card");
+            Console.Write("Enter your choice: ");
+            int paymentMethod = Convert.ToInt32(Console.ReadLine());
+
+            switch (paymentMethod)
+            {
+                case 1:
+                    // Process cash payment
+                    ProcessCashPayment(selectedProducts);
+                    break;
+                case 2:
+                    // Process card payment
+                    ProcessCardPayment(selectedProducts);
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+        }
+
+        private void ProcessCashPayment(List<Product> selectedProducts)
+        {
+            double totalAmount = 0; // cantidad total a pagar
+            foreach (var product in selectedProducts)
+            {
+                totalAmount += product.GetProduct_Price();
+            }
+            double paidAmount = 0; // cantidad total de dinero introducido en la maquina por el usuario
+            bool succes = false;
+            int quitarElemento = 0;
+
+            Console.WriteLine($"Total amount to be paid: {totalAmount}");
+
+            while (paidAmount < totalAmount) // falta dinero por meter para terminar la compra
+            {
+                Console.Write("Enter the amount paid (or type 'cancel' to cancel the transaction): ");
+                string input = Console.ReadLine();
+
+                if (input.ToLower() == "cancel") // en caso de escribir cancel, terminamos con el metodo
+                {
+                    Console.WriteLine("Transaction canceled.");
+                    return;
+                }
+
+                try
+                {
+                    paidAmount += double.Parse(input);
+                    Console.WriteLine($"Paid amount: {paidAmount}");
+
+                    if (paidAmount < totalAmount) // si aun el saldo introducido en la maquina no es suficiente para finalizar la compra
+                    {
+                        Console.WriteLine($"Remaining amount: {totalAmount - paidAmount}");
+                    }
+                    else if (paidAmount >= totalAmount) // si el saldo ya cumple con el minimo o hay suficiente para realizar la compra
+                    {
+                        Console.WriteLine($"Change due: {paidAmount - totalAmount}");
+                    }
+                    succes = true;
+                }
+                catch (FormatException)
+                {
+                    // Parsing failed due to invalid format, handle the error or invalid input
+                    Console.WriteLine("Invalid input. Please enter a valid amount.");
+                }
+                finally
+                {
+                    if (succes != true)
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid amount.");
+
+                    }
+                }
+            }
+
+            Console.WriteLine("Payment successful. Dispensing product(s)...");
+            // Update available units for purchased products
+            foreach (var product in selectedProducts)
+            {
+                product.SetEliminarProducto();
+            }
+            Console.WriteLine("Thank you for your purchase!");
+        }
+
+
+        private void ProcessCardPayment(List<Product> selectedProducts)
+        {
+            Console.WriteLine("Enter card details:");
+            Console.Write("Card number: ");
+            string cardNumber = Console.ReadLine();
+
+            Console.Write("Expiration date (MM/YY): ");
+            string expirationDate = Console.ReadLine();
+
+            Console.Write("Security code: ");
+            string securityCode = Console.ReadLine();
+
+            // Validación de los detalles de la tarjeta (simplificado)
+            if (!string.IsNullOrEmpty(cardNumber) && !string.IsNullOrEmpty(expirationDate) && !string.IsNullOrEmpty(securityCode))
+            {
+                double totalAmount = selectedProducts.Sum(p => p.GetProduct_Price());
+                Console.WriteLine($"Total amount to be paid: {totalAmount}");
+
+                // Aquí podrías implementar la lógica para comunicarte con un servicio de procesamiento de pagos
+                // y autorizar la transacción con los detalles de la tarjeta proporcionados.
+
+                Console.WriteLine("Card payment successful. Dispensing product(s)...");
+                // Actualizar unidades disponibles para los productos comprados
+                foreach (var product in selectedProducts)
+                {
+                    product.SetEliminarProducto();
+                }
+                Console.WriteLine("Thank you for your purchase!");
+            }
+            else
+            {
+                Console.WriteLine("Invalid card details. Payment could not be processed.");
+            }
         }
     }
 }

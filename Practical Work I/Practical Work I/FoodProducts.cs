@@ -17,9 +17,17 @@ namespace PWI
             this.nutri_info = Console.ReadLine();
         }
 
-        public FoodProducts(string a) // cosntructor para lectura de ficheros automatica
+        public FoodProducts(int product_type, string product_name, int product_units, double product_unit_price, string product_description, string var6) // cosntructor para lectura de ficheros automatica
         {
-            //this.nutri_info = this.nutritional_information;
+
+            this.product_type = product_type;
+            this.product_name = product_name;
+            this.product_units = product_units;
+            this.product_unit_price = product_unit_price;
+            this.product_description = product_description;
+
+            this.nutri_info = var6;
+            this.nutritional_information = this.nutri_info;
         }
         public override void Rellenar()
         {
