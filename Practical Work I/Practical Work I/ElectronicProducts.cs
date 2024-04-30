@@ -1,4 +1,4 @@
-﻿using PWI;
+using PWI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,11 +27,21 @@ namespace PWI
             }
         }
 
-        public ElectronicProducts(string a) // cosntructor para rellenar con ficheros
+        public ElectronicProducts(int product_type, string product_name, int product_units, double product_unit_price, string product_description, string var6, bool var7, bool var8) // cosntructor para rellenar con ficheros
         {
-            //this.mat = this.materials;
-            //this.bateria = this.has_battery;
-            //this.bateria_cargada = this.charged_by_default;
+
+            this.product_type = product_type;
+            this.product_name = product_name;
+            this.product_units = product_units;
+            this.product_unit_price = product_unit_price;
+            this.product_description = product_description;
+
+            this.mat = var6;
+            this.materials = this.mat;
+            this.bateria = var7;
+            this.has_battery = this.bateria;
+            this.bateria_cargada = var8;
+            this.charged_by_default = this.bateria_cargada;
 
         }
 
