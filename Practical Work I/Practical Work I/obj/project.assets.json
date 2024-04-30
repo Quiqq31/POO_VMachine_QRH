@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\rubit\\.nuget\\packages\\": {}
+    "C:\\Users\\Hugo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rubit\\OneDrive\\Documentos\\GitHub\\POO_VMachine_QRH\\Practical Work I\\Practical Work I\\Practical Work I.csproj",
+      "projectUniqueName": "C:\\Users\\Hugo\\Documents\\GitHub\\POO_VMachine_QRH\\Practical Work I\\Practical Work I\\Practical Work I.csproj",
       "projectName": "Practical Work I",
-      "projectPath": "C:\\Users\\rubit\\OneDrive\\Documentos\\GitHub\\POO_VMachine_QRH\\Practical Work I\\Practical Work I\\Practical Work I.csproj",
-      "packagesPath": "C:\\Users\\rubit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rubit\\OneDrive\\Documentos\\GitHub\\POO_VMachine_QRH\\Practical Work I\\Practical Work I\\obj\\",
+      "projectPath": "C:\\Users\\Hugo\\Documents\\GitHub\\POO_VMachine_QRH\\Practical Work I\\Practical Work I\\Practical Work I.csproj",
+      "packagesPath": "C:\\Users\\Hugo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hugo\\Documents\\GitHub\\POO_VMachine_QRH\\Practical Work I\\Practical Work I\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rubit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hugo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
