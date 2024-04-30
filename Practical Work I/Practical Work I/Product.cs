@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.Design;
 
 namespace PWI
@@ -58,46 +58,42 @@ namespace PWI
 
         }
 
-        public Product(int product_type, string product_name, int product_units, double product_unit_price, string product_description, int index_pal, string pal)
-        {
-            this.precious_materials = new List<PreciousMaterials>();
-            this.food_products = new List<FoodProducts>();
-            this.elect_products = new List<ElectronicProducts>();
+        //public Product(int product_type, string product_name, int product_units, double product_unit_price, string product_description, int index_pal, string pal)
+        //{
+        //    this.product_type = product_type;
+        //    this.product_name = product_name;
+        //    this.product_units = product_units;
+        //    this.product_unit_price = product_unit_price;
+        //    this.product_description = product_description;
 
-            this.product_type = product_type;
-            this.product_name = product_name;
-            this.product_units = product_units;
-            this.product_unit_price = product_unit_price;
-            this.product_description = product_description;
+        //    this.index_pal = index_pal;
+        //    this.pal = pal;
 
-            this.index_pal = index_pal;
-            this.pal = pal;
+        //    if (this.product_type == 1) // crear un material precioso
+        //    {
+        //        PreciousMaterials mat2 = new PreciousMaterials("tipo1");
 
-            if (this.product_type == 1) // crear un material precioso
-            {
-                PreciousMaterials mat2 = new PreciousMaterials("tipo1");
-
-                mat2.Rellenar();
-                this.precious_materials.Add(mat2);
+        //        mat2.Rellenar();
+        //        this.precious_materials.Add(mat2);
 
 
-            }
-            else if (this.product_type == 2) // crear un alimento
-            {
-                FoodProducts food2 = new FoodProducts("tipo2");
+        //    }
+        //    else if (this.product_type == 2) // crear un alimento
+        //    {
+        //        FoodProducts food2 = new FoodProducts("tipo2");
 
-                food2.Rellenar();
+        //        food2.Rellenar();
 
-                this.food_products.Add(food2);
-            }
-            else if (this.product_type == 3) // crear un prod electronico
-            {
-                ElectronicProducts elec2 = new ElectronicProducts("tipo3");
+        //        this.food_products.Add(food2);
+        //    }
+        //    else if (this.product_type == 3) // crear un prod electronico
+        //    {
+        //        ElectronicProducts elec2 = new ElectronicProducts("tipo3");
 
-                elec2.Rellenar();
-                this.elect_products.Add(elec2);
-            }
-        }
+        //        elec2.Rellenar();
+        //        this.elect_products.Add(elec2);
+        //    }
+        //}
 
         public virtual void Rellenar(){ }
 
@@ -253,5 +249,14 @@ namespace PWI
             return null;
         }
 
+
+        public void SetEliminarProducto()
+        {
+            this.product_units--;
+        }
+        public void IncreaseProductUnits(int quantity)
+        {
+            this.product_units = quantity;
+        }
     }
 }
