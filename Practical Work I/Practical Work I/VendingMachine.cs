@@ -145,29 +145,6 @@ namespace PWI
             }
         }
 
-        public void MostrarInfo(string stock)
-        {
-            int x = 0;
-            string[] lineas = File.ReadAllLines(stock);
-            foreach (string lineaA in lineas)
-            {
-                string[] pFilt = lineaA.Split(';');
-                foreach (string palabra in pFilt)
-                {
-                    if (x == 0)
-                    {
-                        Console.WriteLine("\n {0}:", palabra);
-                    }
-                    else
-                    {
-                        Console.WriteLine("\n      -> {0}", palabra);
-                    }
-                    x++;
-                }
-                x = 0;
-            }
-        }
-
         public void ShowProducts()
         {
             int x = 0; // indice de tipos de prodctos
@@ -260,30 +237,40 @@ namespace PWI
                     break;
             }
 
-            //if ((option != 4))
-            //{
-            //    //IndividualProductLoading();
-            //}
-        }
-
-        public void IndividualProductLoading()
-        {
-            do
+            if ((option != 4))
             {
-                Console.WriteLine("Do you want to restock an existing product(type e) or add a new product(type n)?");
-                newProduct = char.Parse(Console.ReadLine());
-                if (newProduct == 'e')
-                {
-                    Console.WriteLine("Which Product would you like to restock?");
-                }
-                else if (newProduct == 'n')
-                {
-                    Console.WriteLine("");
-                }
-                else Console.WriteLine("Type a valid letter"); Console.ReadLine();
-
-            } while (newProduct == 'e' || newProduct == 'n');
+                IndividualProductLoading();
+            }
         }
+
+        //public void IndividualProductLoading()
+        //{
+        //    do
+        //    {
+        //        Console.WriteLine("Do you want to restock an existing product(type e) or add a new product(type n)?");
+        //        newProduct = char.Parse(Console.ReadLine());
+        //        if (newProduct == 'e')
+        //        {
+        //            Console.WriteLine("Which Product would you like to restock?");
+        //        }
+        //        else if (newProduct == 'n')
+        //        {
+        //            Console.WriteLine("");
+        //        }
+        //        else Console.WriteLine("Type a valid letter"); Console.ReadLine();
+
+        //    } while (newProduct == 'e' || newProduct == 'n');
+        //}
+
+        public void VerProductos()
+        {
+            // Display all available products including name, available units, and price
+            foreach (var product in products)
+            {
+                Console.WriteLine($"Type: {product.GetProduct_Type()}, Name: {product.GetProduct_Name()}, Available Units: {product.GetProduct_Units()}, Price: {product.GetProduct_Price()} \n  -> Description: {product.GetProduct_Description()}");
+            }
+        }
+
 
         public void BuyProducts()
         {
@@ -437,6 +424,127 @@ namespace PWI
                 Console.WriteLine("Invalid card details. Payment could not be processed.");
             }
         }
+
+        public void IndividualProductLoading()
+        {
+            while (true)
+            {
+                Console.WriteLine("Select an option:");
+                Console.WriteLine("1. Restock existing product");
+                Console.WriteLine("2. Add new product");
+                Console.WriteLine("3. Return to main menu");
+                Console.Write("Enter your choice: ");
+                int choice = Convert.ToInt32(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        RestockExistingProduct();
+                        break;
+                    case 2:
+                        AddNewProduct();
+                        break;
+                    case 3:
+                        return;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+            }
+        }
+
+        private void RestockExistingProduct()
+        {
+            Console.WriteLine("Select the product you want to restock:");
+            // Mostrar lista de productos disponibles
+            ShowProducts();
+
+            // Solicitar al usuario que elija el producto por su índice
+            Console.Write("Enter the index of the product you want to restock: ");
+            int index = Convert.ToInt32(Console.ReadLine());
+
+            // Verificar si el índice está dentro del rango válido
+            if (index >= 0 && index < products.Count)
+            {
+                Console.Write("Enter the quantity to restock: ");
+                int quantity = Convert.ToInt32(Console.ReadLine());
+
+                // Incrementar la cantidad de unidades del producto seleccionado
+                products[index].IncreaseProductUnits(quantity);
+                Console.WriteLine($"Product '{products[index].GetProduct_Name()}' restocked by {quantity} units.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid product index.");
+            }
+        }
+
+        private void AddNewProduct()
+        {
+            Console.WriteLine("Enter details for the new product:");
+
+            // Solicitar al usuario que ingrese los detalles del nuevo producto
+            Console.Write("Product type (1. Precious Materials, 2. Food Products, 3. Electronic Products): ");
+            int productType = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Product name: ");
+            string productName = Console.ReadLine();
+
+            Console.Write("Product units: ");
+            int productUnits = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Product unit price: ");
+            double productUnitPrice = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Product description: ");
+            string productDescription = Console.ReadLine();
+
+            // Crear un nuevo producto según el tipo seleccionado
+            Product newProduct = null;
+            switch (productType)
+            {
+                case 1:
+                    Console.Write("Materials: ");
+                    string materials = Console.ReadLine();
+
+                    Console.Write("Weight: ");
+                    string weight = Console.ReadLine();
+
+                    newProduct = new PreciousMaterials(productType, productName, productUnits, productUnitPrice, productDescription, materials, weight);
+                    break;
+                case 2:
+                    Console.Write("Nutritional information: ");
+                    string nutritionalInformation = Console.ReadLine();
+
+                    newProduct = new FoodProducts(productType, productName, productUnits, productUnitPrice, productDescription, nutritionalInformation);
+                    break;
+                case 3:
+                    Console.Write("Materials: ");
+                    string materialsElec = Console.ReadLine();
+
+                    Console.Write("Has battery (true/false): ");
+                    bool hasBattery = Convert.ToBoolean(Console.ReadLine());
+
+                    // Si el producto tiene batería, preguntar si está cargada por defecto
+                    bool chargedByDefault = false;
+                    if (hasBattery)
+                    {
+                        Console.Write("Charged by default (true/false): ");
+                        chargedByDefault = Convert.ToBoolean(Console.ReadLine());
+                    }
+
+                    newProduct = new ElectronicProducts(productType, productName, productUnits, productUnitPrice, productDescription, materialsElec, hasBattery, chargedByDefault);
+                    break;
+                default:
+                    Console.WriteLine("Invalid product type.");
+                    return;
+            }
+
+            // Agregar el nuevo producto a la lista de productos
+            products.Add(newProduct);
+            Console.WriteLine("New product added successfully.");
+        }
+
     }
 }
             

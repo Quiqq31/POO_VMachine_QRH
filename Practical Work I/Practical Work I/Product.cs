@@ -254,6 +254,9 @@ namespace PWI
         {
             this.product_units--;
         }
-
+        public void IncreaseProductUnits(int quantity)
+        {
+            this.product_units = quantity;
+        }
     }
 }

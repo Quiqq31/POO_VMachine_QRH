@@ -16,10 +16,6 @@ namespace PWI
 
                 v.LeerFile(path);
 
-                v.ShowProducts();
-
-                Console.ReadLine();
-
                 int option = 0;
 
                 do
@@ -41,14 +37,11 @@ namespace PWI
                     Console.WriteLine("         |------------------------------------|");
                     Console.WriteLine();
 
-
-
                     Console.WriteLine("Choose your option: ");
                     option = int.Parse(Console.ReadLine());
                     Console.Clear();
 
                     int passwd = 0;
-
 
                     switch (option)
                     {
@@ -56,12 +49,14 @@ namespace PWI
                         case 1:
                             Console.WriteLine("Buy products ");
                             v.ShowProducts();
+                            v.BuyProducts();
                             Console.ReadLine();
 
                             break;
                         case 2:
 
                             Console.WriteLine("Product info: ");
+                            v.VerProductos();
                             Console.ReadLine();
 
                             break;
@@ -115,8 +110,6 @@ namespace PWI
                              break;
                         case 5:
                             break;
-
-                            break;
                         default:
                             Console.WriteLine("Please choose an option between 1 and 5");
                             Console.ReadLine();
@@ -129,6 +122,6 @@ namespace PWI
                 Console.WriteLine(err.Message);
             }
 
-        }
+        }     
     }
 }
