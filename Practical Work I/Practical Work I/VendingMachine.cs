@@ -32,15 +32,6 @@ namespace PWI
 
         private char newProduct;
 
-        //private string typeMat;
-        //private double weight;
-
-        //private string typeMatE;
-        //private bool battery;
-        //private bool precharged;
-
-        //private string nutInfo;
-
         private List<Product> products;
 
         public VendingMachine()
@@ -127,13 +118,11 @@ namespace PWI
 
                     mat2.Rellenar();
 
-                    Console.WriteLine(" material--> "+ mat2.GetMat());
-                    Console.ReadLine();
                 }
-                //Product p = new Product(this.product_type, this.product_name, this.product_units, this.product_unit_price, this.product_description, this.index_pal, this.pal);
+                Product p = new Product(this.product_type, this.product_name, this.product_units, this.product_unit_price, this.product_description, this.index_pal, this.pal);
+
+                this.products.Add(p);
                 
-                //this.products.Add(p);
-                // pruebas 
                 x = 0; // indice de palabras a cero, para que comience desde la primera palabra en la siguiente linea
                 y++; // aumentamos el indice de linea, para que pase a procesar/leer la siguiente linea del fichero
             }
@@ -180,12 +169,7 @@ namespace PWI
                         Console.WriteLine("     - {0}", producto.GetProduct_Price());
                         Console.WriteLine("     - {0}", producto.GetProduct_Description());
                         Console.WriteLine("     - {0}", producto.GetMaterials());
-                        //foreach (string matP in producto.GetPreciousMaterialsMat())
-                        //{
-                        //    Console.WriteLine("     - {0}", matP.GetMat());
-                        //    Console.WriteLine("     - {0}", matP.GetPeso());
-
-                        //}
+                        Console.WriteLine("     - {0}", producto.GetWeight());
                         break;
                     case 2:
                         Console.WriteLine(" Products Type: FOOD PRODUCTS");
