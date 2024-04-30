@@ -1,0 +1,30 @@
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.exe
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.deps.json
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.runtimeconfig.json
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.dll
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.pdb
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.csproj.AssemblyReference.cache
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.AssemblyInfoInputs.cache
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.AssemblyInfo.cs
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.csproj.CoreCompileInputs.cache
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.dll
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\refint\Practical Work I.dll
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.pdb
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.genruntimeconfig.cache
+C:\Users\Hugo\source\repos\Practical Work I\Practical Work I\obj\Debug\net6.0\ref\Practical Work I.dll
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.exe
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.deps.json
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.runtimeconfig.json
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.dll
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\bin\Debug\net6.0\Practical Work I.pdb
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.csproj.AssemblyReference.cache
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.AssemblyInfoInputs.cache
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.AssemblyInfo.cs
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.csproj.CoreCompileInputs.cache
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.dll
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\refint\Practical Work I.dll
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.pdb
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\Practical Work I.genruntimeconfig.cache
+C:\Users\Tester\OneDrive - UFV\Documentos\2.UNI\POO_2aMat\Practical Work I\Practical Work I\obj\Debug\net6.0\ref\Practical Work I.dll

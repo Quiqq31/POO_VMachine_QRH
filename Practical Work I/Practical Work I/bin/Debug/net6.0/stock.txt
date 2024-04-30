@@ -1,0 +1,2 @@
+1;Bracelet;3;5;Metalic bracelet with mineral stones;iron & minerals;100
+2;Chips;5;1,12;Potato chips cheese flavour;123 sugar, contains gluten
