@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tester\\OneDrive - UFV\\Documentos\\2.UNI\\POO_2aMat\\Practical Work I\\Practical Work I\\Practical Work I.csproj",
+      "projectUniqueName": "C:\\Users\\Tester\\OneDrive - UFV\\Documentos\\2.UNI\\POO_2aMat\\Practica_POO_Machine\\POO_VMachine_QRH\\Practical Work I\\Practical Work I\\Practical Work I.csproj",
       "projectName": "Practical Work I",
-      "projectPath": "C:\\Users\\Tester\\OneDrive - UFV\\Documentos\\2.UNI\\POO_2aMat\\Practical Work I\\Practical Work I\\Practical Work I.csproj",
+      "projectPath": "C:\\Users\\Tester\\OneDrive - UFV\\Documentos\\2.UNI\\POO_2aMat\\Practica_POO_Machine\\POO_VMachine_QRH\\Practical Work I\\Practical Work I\\Practical Work I.csproj",
       "packagesPath": "C:\\Users\\Tester\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tester\\OneDrive - UFV\\Documentos\\2.UNI\\POO_2aMat\\Practical Work I\\Practical Work I\\obj\\",
+      "outputPath": "C:\\Users\\Tester\\OneDrive - UFV\\Documentos\\2.UNI\\POO_2aMat\\Practica_POO_Machine\\POO_VMachine_QRH\\Practical Work I\\Practical Work I\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tester\\AppData\\Roaming\\NuGet\\NuGet.Config",
